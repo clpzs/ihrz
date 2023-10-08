@@ -15,32 +15,24 @@
 
 
 ・ Mainly developed by Kisakay (https://github.com/Kisakay)
-・ Contribution by Naya (https://github.com/belugafr)
+
 ・ Copyright © 2020-2023 iHorizon
 */
 
-import { execSync } from 'child_process';
+import {
+    Client,
+} from 'discord.js'
 
-execSync(`rm -r dist`, {
-    stdio: [0, 1, 2],
-    cwd: process.cwd(),
-});
+import { Command } from '../../../types/command';
 
-execSync(`git pull`, {
-    stdio: [0, 1, 2],
-    cwd: process.cwd(),
-});
+export const command: Command = {
+    name: 'nayaweb',
+    description: 'Get necessary information about my contributor``',
+    category: 'bot',
+    run: async (client: Client, interaction: any) => {
+        let data = await client.functions.getLanguageData(interaction.guild.id);
 
-execSync(`npx tsc`, {
-    stdio: [0, 1, 2],
-    cwd: process.cwd(),
-});
-
-import couleurmdr from 'colors';
-import logger from './src/core/logger';
-import { ShardingManager } from 'discord.js';
-import config from './src/files/config';
-
-let manager = new ShardingManager('./dist/src/core/bot.js', { totalShards: "auto", token: config.discord.token });
-manager.on("shardCreate", (shard) => logger.log(couleurmdr.green(`${config.console.emojis.HOST} >> The Shard number ${shard.id} is launched !`)));
-manager.spawn();
+        await interaction.editReply({ content: data.nayaweb_message });
+        return;
+    },
+};
