@@ -69,7 +69,7 @@ export = async (client: Client) => {
             "discord.gg/ihorizon",
             "https://ihorizon.me",
             "iHorizon x ElektraBots <3",
-            "2024 Soon 💫",
+            "💫 2024 💫",
             "Santa give me lot of script 😇",
             "Like my owner say: More TYPING, MORE TYPING",
             "My source are leaked... github.com/ihrz/ihrz",
