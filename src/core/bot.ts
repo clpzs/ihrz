@@ -38,7 +38,6 @@ let client = new Client({
             GatewayIntentBits.GuildMessages, 
             GatewayIntentBits.GuildMessageTyping, 
             GatewayIntentBits.GuildModeration, 
-            GatewayIntentBits.GuildPresences, 
             GatewayIntentBits.GuildScheduledEvents, 
             GatewayIntentBits.Guilds,
             GatewayIntentBits.GuildVoiceStates,
