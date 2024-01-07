@@ -232,7 +232,7 @@ async function CreateChannel(interaction: ButtonInteraction<CacheType>, result: 
             TicketLogsChannel.send({ embeds: [embed] });
             return;
         } catch (e) { return };
-    }).catch(() => { });
+    });
 };
 
 async function CloseTicket(interaction: ChatInputCommandInteraction<CacheType>) {

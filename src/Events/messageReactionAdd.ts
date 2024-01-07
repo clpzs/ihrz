@@ -40,7 +40,7 @@ export = async (client: Client, reaction: MessageReaction, user: User) => {
                 if (!role) return;
 
                 let member = reaction.message.guild.members.cache.get(user.id);
-                await member?.roles.add(role).catch(() => { });
+                await member?.roles.add(role);
                 return;
             };
 
@@ -51,7 +51,7 @@ export = async (client: Client, reaction: MessageReaction, user: User) => {
                 if (!role) return;
 
                 let member = reaction.message.guild.members.cache.get(user.id);
-                await member?.roles.add(role).catch(() => { });
+                await member?.roles.add(role);
                 return;
             };
         } catch (e: any) {

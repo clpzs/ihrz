@@ -98,12 +98,12 @@ export = {
                 default:
                     break;
             }
-            reaction.users.remove(user.id).catch(() => { });
+            reaction.users.remove(user.id);
             message.edit({ embeds: [embeds[currentIndex]] });
         });
 
         collector.on('end', () => {
-            message.reactions.removeAll().catch(() => { });
+            message.reactions.removeAll();
         });
     },
 };

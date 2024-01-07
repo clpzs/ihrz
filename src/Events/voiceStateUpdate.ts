@@ -59,7 +59,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${OchannelID}", OchannelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
 
@@ -68,7 +68,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${channelID}", channelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
 
@@ -78,7 +78,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${channelID}", channelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
 
@@ -87,7 +87,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${channelID}", channelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
 
@@ -97,7 +97,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${channelID}", channelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
 
@@ -106,7 +106,7 @@ export = async (client: Client, oldState: VoiceState, newState: VoiceState) => {
                 .replace("${targetUser.id}", targetUser.id)
                 .replace("${channelID}", channelID)
             );
-            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+            await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
             return;
         };
     };

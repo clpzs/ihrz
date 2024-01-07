@@ -51,7 +51,7 @@ export = async (client: Client, oldMessage: Message, newMessage: Message) => {
                 { name: data.event_srvLogs_messageUpdate_footer_2, value: ' ' + newMessage.content })
             .setTimestamp();
 
-        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
     };
 
     serverLogs();

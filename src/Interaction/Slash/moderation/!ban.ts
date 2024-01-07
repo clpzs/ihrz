@@ -90,7 +90,7 @@ export = {
                             content: data.ban_command_work
                                 .replace(/\${member\.user\.id}/g, member.user.id)
                                 .replace(/\${interaction\.member\.id}/g, interaction.user.id)
-                        }).catch(() => { });
+                        });
 
                         try {
                             let logEmbed = new EmbedBuilder()

@@ -70,7 +70,7 @@ export = {
             content: data.kick_message_to_the_banned_member
                 .replace(/\${interaction\.guild\.name}/g, interaction.guild.name)
                 .replace(/\${interaction\.member\.user\.username}/g, interaction.user.globalName as string)
-        }).catch(() => { });
+        });
 
         try {
             await member?.kick(`Kicked by ${interaction.user.globalName}`);

@@ -63,7 +63,7 @@ export = async (client: Client, guild: Guild) => {
         let isBL = await client.db.get(`GLOBAL.BLACKLIST.${guild.ownerId}.blacklisted`) || false;
 
         if (isBL) {
-            await (channelHr as GuildTextBasedChannel).send({ embeds: [tqtmonreuf] }).catch(() => { });
+            await (channelHr as GuildTextBasedChannel).send({ embeds: [tqtmonreuf] });
             guild.leave();
             return false;
         } else {
@@ -91,7 +91,7 @@ I'm here to make your experience on this server the best it can be.
 
 Thanks for choosing me and let's have some fun together!`);
 
-        if (channel) { (channel as GuildTextBasedChannel).send({ embeds: [embed] }).catch(() => { }); };
+        if (channel) { (channel as GuildTextBasedChannel).send({ embeds: [embed] }); };
     };
 
     async function getInvites() {
@@ -132,7 +132,7 @@ Thanks for choosing me and let's have some fun together!`);
                 { name: "🪝・Vanity URL", value: `\`${i || "None"}\``, inline: true })
             .setThumbnail(guild.iconURL())
             .setFooter({ text: 'iHorizon', iconURL: client.user?.displayAvatarURL() });
-        (client.channels.cache.get(config.core.guildLogsChannelID) as BaseGuildTextChannel).send({ embeds: [embed] }).catch(() => { });
+        (client.channels.cache.get(config.core.guildLogsChannelID) as BaseGuildTextChannel).send({ embeds: [embed] });
     };
 
     // let c = await antiPoubelle();

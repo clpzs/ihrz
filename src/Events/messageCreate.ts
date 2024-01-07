@@ -58,13 +58,13 @@ export = async (client: Client, message: Message) => {
                 content: data.event_xp_level_earn
                     .replace("${message.author.id}", message.author.id)
                     .replace("${newLevel}", newLevel)
-            }).catch(() => { });
+            });
 
             (client.channels.cache.get(xpChan) as GuildTextBasedChannel).send({
                 content: data.event_xp_level_earn
                     .replace("${message.author.id}", message.author.id)
                     .replace("${newLevel}", newLevel)
-            }).catch(() => { });
+            });
 
             return;
         }
@@ -93,10 +93,10 @@ export = async (client: Client, message: Message) => {
             if (LOG?.amountMax === LOGfetched?.flags && LOG?.state === "true") {
                 switch (LOG.punishementType) {
                     case 'ban':
-                        message.guild.members.ban(message.author, { reason: "Ban by PUNISHPUB" }).catch(() => { });
+                        message.guild.members.ban(message.author, { reason: "Ban by PUNISHPUB" });
                         break;
                     case 'kick':
-                        message.guild.members.kick(message.author).catch(() => { });
+                        message.guild.members.kick(message.author);
                         break;
                     case 'mute':
                         let muterole = message.guild.roles.cache.find((role: { name: string; }) => role.name === 'muted');
@@ -157,8 +157,8 @@ export = async (client: Client, message: Message) => {
                 .setFooter({ text: 'iHorizon', iconURL: client.user?.displayAvatarURL() })
                 .setTimestamp();
 
-            message.member?.roles.add(fetch).catch(() => { });
-            message.channel.send({ embeds: [embed] }).catch(() => { });
+            message.member?.roles.add(fetch);
+            message.channel.send({ embeds: [embed] });
             return;
         };
     };

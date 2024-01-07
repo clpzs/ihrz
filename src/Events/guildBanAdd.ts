@@ -46,7 +46,7 @@ export = async (client: Client, ban: GuildBan) => {
                 .replace("${firstEntry.target.id}", firstEntry?.target?.id)
             ).setTimestamp();
 
-        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
     };
 
     serverLogs();

@@ -39,7 +39,7 @@ export = async (client: Client, member: GuildMember) => {
         let role = member.guild.roles.cache.get(roleid);
         if (!roleid || !role) return;
 
-        member.roles.add(roleid).catch(() => { });
+        member.roles.add(roleid);
     };
 
     async function joinDm() {
@@ -68,7 +68,7 @@ export = async (client: Client, member: GuildMember) => {
                 member.send({ content: "You've been banned, because you are blacklisted" })
                     .catch(() => { })
                     .then(() => {
-                        member.ban({ reason: 'blacklisted!' }).catch(() => { });
+                        member.ban({ reason: 'blacklisted!' });
                     });
             }
         } catch (error) {
@@ -161,7 +161,7 @@ export = async (client: Client, member: GuildMember) => {
                             .replace("${member.guild.name}", member.guild.name)
                             .replace("${inviter.tag}", inviter.username)
                             .replace("${fetched}", invitesAmount)
-                    }).catch(() => { });
+                    });
                     return;
                 } else {
                     var joinMessageFormated = joinMessage
@@ -172,7 +172,7 @@ export = async (client: Client, member: GuildMember) => {
                         .replace("{inviter}", inviter.username)
                         .replace("{invites}", invitesAmount);
 
-                    (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({ content: joinMessageFormated }).catch(() => { });
+                    (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({ content: joinMessageFormated });
                     return;
                 };
             } else if (member.guild.features.includes(GuildFeature.VanityURL)) {
@@ -192,7 +192,7 @@ export = async (client: Client, member: GuildMember) => {
                             .replace("${member.guild.name}", member.guild.name)
                             .replace("${inviter.tag}", "/" + VanityURL.code)
                             .replace("${fetched}", VanityURL.uses)
-                    }).catch(() => { });
+                    });
                     return;
                 }
             }
@@ -205,14 +205,14 @@ export = async (client: Client, member: GuildMember) => {
                     .replace("${member.id}", member.id)
                     .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
                     .replace("${member.guild.name}", member.guild.name)
-            }).catch(() => { });
+            });
             return;
         }
     };
 
     async function blockBot() {
         if (await client.db.get(`${member.guild.id}.GUILD.BLOCK_BOT`) && member.user.bot) {
-            member.ban({ reason: 'The BlockBot function are enable!' }).catch(() => { });
+            member.ban({ reason: 'The BlockBot function are enable!' });
         };
     };
 
@@ -237,26 +237,26 @@ export = async (client: Client, member: GuildMember) => {
             let passedtest = false;
 
             collector.on('collect', (m) => {
-                m.delete().catch(() => { });
+                m.delete();
 
                 if (request.code === m.content) {
-                    member.roles.add(baseData?.role).catch(() => { });
-                    msg.delete().catch(() => { });
+                    member.roles.add(baseData?.role);
+                    msg.delete();
                     passedtest = true;
                     collector.stop();
                     return;
                 } else {
                     // the member has failed the captcha 
-                    msg.delete().catch(() => { });
-                    member.kick().catch(() => { });
+                    msg.delete();
+                    member.kick();
                     return;
                 }
             });
 
             collector.on('end', (collected) => {
                 if (passedtest) return;
-                msg.delete().catch(() => { });
-                member.kick().catch(() => { });
+                msg.delete();
+                member.kick();
             });
 
         }).catch((error: any) => {

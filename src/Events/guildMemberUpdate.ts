@@ -84,7 +84,7 @@ export = async (client: Client, oldMember: GuildMember, newMember: GuildMember) 
         };
         logsEmbed.setDescription(desc);
 
-        (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+        (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
     };
 
     serverLogs();

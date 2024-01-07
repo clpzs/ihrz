@@ -125,7 +125,7 @@ export = async (client: Client) => {
                     member?.send({
                         content: `<@${member.id}>`,
                         embeds: [embed]
-                    }).catch(() => { });
+                    });
 
                     await client.db.delete(`SCHEDULE.${user}.${code}`);
                 };

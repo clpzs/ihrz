@@ -50,13 +50,13 @@ export = async (client: Client, oldPresence: Presence, newPresence: Presence) =>
 
         if (bio.state.toString().toLowerCase().includes(someinfo.input.toString().toLowerCase()) || bio.state.toString().toLowerCase().includes(vanity.toString().toLowerCase())) {
             try {
-                return fetchedUser?.roles.add(someinfo.rolesId).catch(() => { });
+                return fetchedUser?.roles.add(someinfo.rolesId);
             } catch (err) { return; };
         };
 
         if (fetchedUser?.roles.cache.has(someinfo.rolesId)) {
             try {
-                fetchedUser?.roles.remove(someinfo.rolesId).catch(() => { });
+                fetchedUser?.roles.remove(someinfo.rolesId);
             } catch (err) { return; };
         };
     };

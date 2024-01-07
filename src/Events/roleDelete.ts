@@ -64,7 +64,7 @@ export = async (client: Client, role: Role) => {
                         });
                         break;
                     case 'simply+ban':
-                        user?.ban({ reason: 'Protect!' }).catch(() => { });
+                        user?.ban({ reason: 'Protect!' });
                         break;
                     default:
                         return;

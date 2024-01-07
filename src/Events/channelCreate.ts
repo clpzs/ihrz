@@ -31,7 +31,7 @@ export = async (client: Client, channel: GuildChannel) => {
             .setColor("#1e1d22")
             .setTitle(data.event_channel_create_message_embed_title)
             .setDescription(data.event_channel_create_message_embed_description);
-        await (channel as GuildTextBasedChannel).send({ embeds: [setup_embed] }).catch(() => { });
+        await (channel as GuildTextBasedChannel).send({ embeds: [setup_embed] });
         return;
     };
 
@@ -65,7 +65,7 @@ export = async (client: Client, channel: GuildChannel) => {
                         });
                         break;
                     case 'simply+ban':
-                        user?.ban({ reason: 'Protect!' }).catch(() => { });
+                        user?.ban({ reason: 'Protect!' });
                         break;
                     default:
                         return;

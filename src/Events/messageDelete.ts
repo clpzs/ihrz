@@ -84,7 +84,7 @@ export = async (client: Client, message: Message) => {
 
                 await Promise.all(filePromises);
 
-                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: files }).catch(() => { });
+                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: files });
                 return;
             } else if (attachment && attachment.contentType.startsWith('image/')) {
                 let snipedImage: AttachmentBuilder;
@@ -94,7 +94,7 @@ export = async (client: Client, message: Message) => {
                     logsEmbed.setImage(`attachment://sniped-image-by-ihorizon.png`);
                 });
 
-                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: [snipedImage!] }).catch(() => { });
+                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: [snipedImage!] });
                 return;
             } else if (attachment) {
                 let snipedFiles: AttachmentBuilder;
@@ -103,12 +103,12 @@ export = async (client: Client, message: Message) => {
                     snipedFiles = new AttachmentBuilder(Buffer.from(response.data, 'base64'), { name: attachment?.name });
                 });
 
-                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: [snipedFiles!] }).catch(() => { });
+                await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed], files: [snipedFiles!] });
                 return;
             }
         };
 
-        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
         return;
     };
 

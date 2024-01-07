@@ -101,7 +101,7 @@ export = async (client: Client, member: GuildMember) => {
 
             let lChanManager = client.channels.cache.get(lChan);
 
-            (lChanManager as BaseGuildTextChannel).send({ content: joinMessageFormated }).catch(() => { });
+            (lChanManager as BaseGuildTextChannel).send({ content: joinMessageFormated });
         } catch (e) {
             let lChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.leave`);
 
@@ -112,7 +112,7 @@ export = async (client: Client, member: GuildMember) => {
                 content: data.event_goodbye_default
                     .replace("${member.id}", member.id)
                     .replace("${member.guild.name}", member.guild.name)
-            }).catch(() => { });
+            });
             return;
         }
     };
@@ -144,7 +144,7 @@ export = async (client: Client, member: GuildMember) => {
             )
             .setTimestamp();
 
-        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] }).catch(() => { });
+        await (Msgchannel as BaseGuildTextChannel).send({ embeds: [logsEmbed] });
     };
 
     async function rolesSaver() {
