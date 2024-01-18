@@ -20,7 +20,7 @@
 */
 
 import { Client, Partials, GatewayIntentBits } from "discord.js";
-import config from "../files/config";
+import config from "../files/config.js";
 
 let client = new Client({
     intents: [
@@ -55,5 +55,7 @@ let client = new Client({
     ]
 });
 
-require('./core')(client);
 client.login(config.discord.token);
+
+import core from './core.js';
+core(client);
