@@ -103,15 +103,6 @@ Thanks for choosing me and let's have some fun together!`);
         } catch (error: any) { logger.err(error) };
     };
 
-    async function getInvites() {
-        if (!guild.members.me?.permissions.has(PermissionsBitField.Flags.ViewAuditLog)) return;
-        try {
-            guild.invites.fetch().then((guildInvites) => {
-                client.invites.set(guild.id, new Collection(guildInvites.map((invite) => [invite.code, invite.uses])));
-            });
-        } catch (error: any) { logger.err(error) };
-    };
-
     async function ownerLogs() {
         let i: string = '';
         if (guild.vanityURLCode) { i = 'discord.gg/' + guild.vanityURLCode; };
