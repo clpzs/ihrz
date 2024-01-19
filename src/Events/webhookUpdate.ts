@@ -58,7 +58,7 @@ export default async (client: Client, channel: GuildChannel) => {
                         });
                         break;
                     case 'simply+ban':
-                        user?.ban({ reason: 'Protect!' });
+                        user?.ban({ reason: 'Protect!' }).catch(() => { });
                         break;
                     default:
                         return;

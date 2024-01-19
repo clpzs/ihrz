@@ -18,16 +18,16 @@
 
 ・ Copyright © 2020-2023 iHorizon
 */
+import { Emojis } from '../../types/emojis';
+import { Client } from 'discord.js';
 
-import { Client } from "discord.js";
-import { readdirSync } from "fs";
+import toml from 'toml';
+import fs from 'fs';
 
-export default async (client: Client) => {
-    client.functions = {};
+function emojis(client: Client) {
+    let emojis: Emojis = toml.parse(String(fs.readFileSync(process.cwd() + "/src/files/emojis.toml")))
 
-    readdirSync(`${process.cwd()}/dist/src/core/functions`).filter(file => file.endsWith(".js")).forEach(async file => {
-        const functions = await import(`${process.cwd()}/dist/src/core/functions/${file}`);
-
-        client.functions[file.split('.js')[0]] = functions.default || functions;
-    });
+    client.iHorizon_Emojis = emojis;
 };
+
+export default emojis;
