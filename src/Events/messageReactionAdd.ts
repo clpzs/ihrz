@@ -28,8 +28,7 @@ import {
 import logger from '../core/logger.js';
 
 export default async (client: Client, reaction: MessageReaction, user: User) => {
-    let data = await client.functions.getLanguageData(reaction.message.guildId);
-
+    
     async function reactionRole() {
         try {
             if (user.id == client.user?.id || !reaction.message.guild) return;
