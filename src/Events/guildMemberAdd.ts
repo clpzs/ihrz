@@ -111,100 +111,112 @@ export default async (client: Client, member: GuildMember) => {
     };
 
     async function welcomeMessage() {
-        try {
-            let oldInvites = client.invites.get(member.guild.id);
-            let newInvites = await member.guild.invites.fetch();
+        // try {
+        let oldInvites = client.invites.get(member.guild.id);
+        let newInvites = await member.guild.invites.fetch();
 
-            let invite = newInvites.find((i: Invite) => i.uses && i.uses > (oldInvites.get(i.code) || 0));
+        let invite = newInvites.find((i: Invite) => i.uses && i.uses > (oldInvites.get(i.code) || 0));
 
-            if (invite) {
-                let inviter = await client.users.fetch(invite?.inviterId as string);
-                client.invites.get(member.guild.id).set(invite?.code, invite?.uses);
+        if (invite) {
+            let inviter = await client.users.fetch(invite?.inviterId as string);
+            client.invites.get(member.guild.id).set(invite?.code, invite?.uses);
 
-                let check = await client.db.get(`${invite?.guild?.id}.USER.${inviter.id}.INVITES`);
+            let check = await client.db.get(`${invite?.guild?.id}.USER.${inviter.id}.INVITES`);
 
-                if (check) {
-                    await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.regular`, 1);
-                    await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.invites`, 1);
-                } else {
-                    await client.db.set(`${invite?.guild?.id}.USER.${inviter.id}.INVITES`,
-                        {
-                            regular: 0, bonus: 0, leaves: 0, invites: 0
-                        }
-                    );
-
-                    await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.regular`, 1);
-                    await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.invites`, 1);
-                    check = await client.db.get(`${invite?.guild?.id}.USER.${inviter.id}.INVITES`);
-                };
-
-                await client.db.set(`${invite?.guild?.id}.USER.${member.user.id}.INVITES.BY`,
+            if (check) {
+                await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.regular`, 1);
+                await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.invites`, 1);
+            } else {
+                await client.db.set(`${invite?.guild?.id}.USER.${inviter.id}.INVITES`,
                     {
-                        inviter: inviter.id,
-                        invite: invite?.code,
+                        regular: 0, bonus: 0, leaves: 0, invites: 0
                     }
                 );
 
-                var invitesAmount = await client.db.get(`${member.guild.id}.USER.${inviter.id}.INVITES.invites`);
+                await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.regular`, 1);
+                await client.db.add(`${invite?.guild?.id}.USER.${inviter.id}.INVITES.invites`, 1);
+            };
 
-                let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
-                if (!wChan || !client.channels.cache.get(wChan)) return;
-
-                let joinMessage = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.joinmessage`);
-
-                if (!joinMessage) {
-                    (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({
-                        content: data.event_welcomer_inviter
-                            .replace("${member.id}", member.id)
-                            .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
-                            .replace("${member.guild.name}", member.guild.name)
-                            .replace("${inviter.tag}", inviter.username)
-                            .replace("${fetched}", invitesAmount)
-                    });
-                    return;
-                } else {
-                    var joinMessageFormated = joinMessage
-                        .replace("{user}", member.user.username)
-                        .replace("{guild}", member.guild.name)
-                        .replace("{createdat}", member.user.createdAt.toLocaleDateString())
-                        .replace("{membercount}", member.guild.memberCount)
-                        .replace("{inviter}", inviter.username)
-                        .replace("{invites}", invitesAmount);
-
-                    (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({ content: joinMessageFormated });
-                    return;
-                };
-            } else if (member.guild.features.includes(GuildFeature.VanityURL)) {
-                let VanityURL = await member.guild.fetchVanityData();
-                let vanityInviteCache = client.vanityInvites.get(member.guild.id);
-
-                client.vanityInvites.set(member.guild.id, VanityURL);
-
-                let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
-                if (!wChan || !client.channels.cache.get(wChan)) return;
-
-                if (vanityInviteCache && vanityInviteCache.uses! < VanityURL.uses!) {
-                    (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({
-                        content: data.event_welcomer_inviter
-                            .replace("${member.id}", member.id)
-                            .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
-                            .replace("${member.guild.name}", member.guild.name)
-                            .replace("${inviter.tag}", "/" + VanityURL.code)
-                            .replace("${fetched}", VanityURL.uses)
-                    });
-                    return;
+            await client.db.set(`${invite?.guild?.id}.USER.${member.user.id}.INVITES.BY`,
+                {
+                    inviter: inviter.id,
+                    invite: invite?.code,
                 }
-            }
-        } catch (e: any) {
-            let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
-            if (!wChan || !client.channels.cache.get(wChan)) return;
+            );
 
-            (client.channels.cache.get(wChan) as BaseGuildTextChannel).send({
-                content: data.event_welcomer_default
+            var invitesAmount = await client.db.get(`${member.guild.id}.USER.${inviter.id}.INVITES.invites`);
+            let joinMessage = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.joinmessage`);
+            let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
+
+            let channel = member.guild.channels.cache.get(wChan) as BaseGuildTextChannel;
+            let msg = '';
+
+            if (!wChan || !channel) return;
+            if (!joinMessage) {
+
+                msg = data.event_welcomer_inviter
                     .replace("${member.id}", member.id)
                     .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
                     .replace("${member.guild.name}", member.guild.name)
-            });
+                    .replace("${inviter.tag}", inviter.username)
+                    .replace("${fetched}", invitesAmount);
+
+            } else {
+
+                msg = joinMessage
+                    .replace("{user}", member.user.username)
+                    .replace("{guild}", member.guild.name)
+                    .replace("{createdat}", member.user.createdAt.toLocaleDateString())
+                    .replace("{membercount}", member.guild.memberCount)
+                    .replace("{inviter}", inviter.username)
+                    .replace("{invites}", invitesAmount);
+
+            };
+
+            channel.send({ content: msg });
+            return;
+
+        } else if (member.guild.features.includes(GuildFeature.VanityURL)) {
+
+            let msg = '';
+            let VanityURL = await member.guild.fetchVanityData();
+            let vanityInviteCache = client.vanityInvites.get(member.guild.id);
+
+            client.vanityInvites.set(member.guild.id, VanityURL);
+
+            let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
+            let channel = member.guild.channels.cache.get(wChan) as BaseGuildTextChannel;
+
+            if (!wChan || !channel) return;
+
+            if (vanityInviteCache && vanityInviteCache.uses! < VanityURL.uses!) {
+
+                msg = data.event_welcomer_inviter
+                    .replace("${member.id}", member.id)
+                    .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
+                    .replace("${member.guild.name}", member.guild.name)
+                    .replace("${inviter.tag}", "/" + VanityURL.code)
+                    .replace("${fetched}", VanityURL.uses);
+
+                channel.send({ content: msg });
+                return;
+
+            };
+
+        } else {
+
+            let msg = '';
+            let wChan = await client.db.get(`${member.guild.id}.GUILD.GUILD_CONFIG.join`);
+            let channel = member.guild.channels.cache.get(wChan) as BaseGuildTextChannel;
+
+            if (!wChan || !channel) return;
+
+            msg = data.event_welcomer_default
+                .replace("${member.id}", member.id)
+                .replace("${member.user.createdAt.toLocaleDateString()}", member.user.createdAt.toLocaleDateString())
+                .replace("${member.guild.name}", member.guild.name)
+
+            channel.send({ content: msg });
             return;
         }
     };
