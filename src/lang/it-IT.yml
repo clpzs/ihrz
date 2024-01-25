@@ -622,6 +622,7 @@ setlogschannel_var_roles: "Log dei ruoli"
 setlogschannel_var_mods: "Log di moderazione"
 setlogschannel_var_voice: "Log vocali"
 setlogschannel_var_msg: "Log dei messaggi"
+setlogschannel_var_boost: "Log degli Boost"
 
 # /automod block mass-mention
 automod_block_massmention_command_off: "${interaction.user}, hai impostato la regola `AutoMod Mass Mention` su **false**.\nOra gli utenti possono inviare menzioni nei loro messaggi.\nAutoMod x iHorizon è stato disattivato nel tuo server!"
@@ -1250,5 +1251,9 @@ event_gw_finnish_msg: "Congratulazioni ${winners}! Hai vinto **${fetch.prize}**!
 event_gw_finnish_cannot_msg: "Nessun partecipante valido, quindi il vincitore non può essere determinato!"
 event_gw_finnish_button_title: "Giveaway Concluso"
 event_gw_removeentries_msg: "${interaction.user}, hai lasciato questo giveaway!"
+
+# Evento di Log degli Boost
+event_boostlog_add: "<@${newMember.user.id}> **ha appena boostato** il server! (Totale boosts: **${newMember.guild.premiumSubscriptionCount}**)"
+event_boostlog_sub: "<@${newMember.user.id}> **ha appena rimosso il suo boost** dal server! (Totale boosts: **${newMember.guild.premiumSubscriptionCount}**)"
 
 # -----------------------------\ /-----------------------------

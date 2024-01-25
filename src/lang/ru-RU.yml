@@ -622,6 +622,7 @@ setlogschannel_var_roles: "Журналы ролей"
 setlogschannel_var_mods: "Журналы модерации"
 setlogschannel_var_voice: "Журналы голоса"
 setlogschannel_var_msg: "Журналы сообщений"
+setlogschannel_var_boost: "Логи Повышений"
 
 # /automod block mass-mention
 automod_block_massmention_command_off: "${interaction.user}, вы отключили `Правило автоматической модерации упоминаний` и теперь пользователи могут отправлять упоминания в своих сообщениях.\nAutoMod x iHorizon отключен на вашем сервере!"
@@ -1250,5 +1251,9 @@ event_gw_finnish_msg: "Поздравляем ${winners}! Вы выиграли 
 event_gw_finnish_cannot_msg: "Нет действительных участников, поэтому победитель не может быть определен!"
 event_gw_finnish_button_title: "Розыгрыш завершен"
 event_gw_removeentries_msg: "${interaction.user}, вы покинули этот конкурс!"
+
+# Событие логов улучшения
+event_boostlog_add: "<@${newMember.user.id}> **только что улучшил(а)** сервер! (**${newMember.guild.premiumSubscriptionCount}** всего улучшений)"
+event_boostlog_sub: "<@${newMember.user.id}> **только что убрал(а) свой улучшение** с сервера! (**${newMember.guild.premiumSubscriptionCount}** всего улучшений)"
 
 # -----------------------------/ \-----------------------------

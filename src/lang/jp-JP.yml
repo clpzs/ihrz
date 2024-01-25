@@ -622,6 +622,7 @@ setlogschannel_var_roles: "役職のログ"
 setlogschannel_var_mods: "モデレーションログ"
 setlogschannel_var_voice: "音声ログ"
 setlogschannel_var_msg: "メッセージログ"
+setlogschannel_var_boost: "ブーストログ"
 
 # /automod block mass-mention
 automod_block_massmention_command_off: "${interaction.user}, あなたは`Mass-Mention AutoModルール`を**false**に設定しました。\n今、ユーザーはメッセージにメンションを送信できます。\nAutoMod x iHorizonはサーバーで無効になっています！"
@@ -1250,5 +1251,9 @@ event_gw_finnish_msg: "おめでとうございます、${winners}さん！ **${
 event_gw_finnish_cannot_msg: "有効な応募者がいないため、受賞者を決定できませんでした！"
 event_gw_finnish_button_title: "ギブアウェイ終了"
 event_gw_removeentries_msg: "${interaction.user}さん、このギブアウェイから退出しました！"
+
+# ブーストログイベント
+event_boostlog_add: "<@${newMember.user.id}> **がサーバーをブーストしました**！（合計**${newMember.guild.premiumSubscriptionCount}**ブースト）"
+event_boostlog_sub: "<@${newMember.user.id}> **がサーバーからブーストを解除しました**！（合計**${newMember.guild.premiumSubscriptionCount}**ブースト）"
 
 # -----------------------------\ /-----------------------------
