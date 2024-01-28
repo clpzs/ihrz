@@ -23,26 +23,27 @@ import { Client, Partials, GatewayIntentBits } from "discord.js";
 
 let client = new Client({
     intents: [
-            GatewayIntentBits.AutoModerationConfiguration, 
-            GatewayIntentBits.AutoModerationExecution, 
-            GatewayIntentBits.DirectMessageReactions,
-            GatewayIntentBits.DirectMessages,
-            GatewayIntentBits.DirectMessageTyping,
-            GatewayIntentBits.GuildBans,
-            GatewayIntentBits.GuildEmojisAndStickers, 
-            GatewayIntentBits.GuildIntegrations, 
-            GatewayIntentBits.GuildInvites, 
-            GatewayIntentBits.GuildMembers, 
-            GatewayIntentBits.GuildMessageReactions, 
-            GatewayIntentBits.GuildMessages, 
-            GatewayIntentBits.GuildMessageTyping, 
-            GatewayIntentBits.GuildModeration, 
-            GatewayIntentBits.GuildScheduledEvents, 
-            GatewayIntentBits.Guilds,
-            GatewayIntentBits.GuildVoiceStates,
-            GatewayIntentBits.GuildWebhooks,
-            GatewayIntentBits.MessageContent
-    ], 
+        GatewayIntentBits.AutoModerationConfiguration,
+        GatewayIntentBits.AutoModerationExecution,
+        GatewayIntentBits.DirectMessageReactions,
+        GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.DirectMessageTyping,
+        GatewayIntentBits.GuildBans,
+        GatewayIntentBits.GuildEmojisAndStickers,
+        GatewayIntentBits.GuildIntegrations,
+        GatewayIntentBits.GuildInvites,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessageReactions,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageTyping,
+        GatewayIntentBits.GuildModeration,
+        GatewayIntentBits.GuildScheduledEvents,
+        GatewayIntentBits.GuildPresences,
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.GuildWebhooks,
+        GatewayIntentBits.MessageContent
+    ],
     partials: [
         Partials.Channel,
         Partials.Message,
@@ -50,7 +51,7 @@ let client = new Client({
         Partials.GuildScheduledEvent,
         Partials.User,
         Partials.Reaction,
-        Partials.ThreadMember
+        Partials.ThreadMember,
     ]
 });
 import core from './core.js';
