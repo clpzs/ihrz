@@ -19,17 +19,10 @@
 ・ Copyright © 2020-2024 iHorizon
 */
 
-import * as apiUrlParser from '../../../core/functions/apiUrlParser.js';
-import { Request, Response } from 'express';
-import fs from 'node:fs';
-
-export default {
-    type: 'get',
-    apiPath: '/api/hug',
-    run: async (req: Request, res: Response) => {
-        let images = fs.readdirSync(`${process.cwd()}/src/assets/hug/`);
-
-        res.send(apiUrlParser.assets + 'hug/' + images[Math.floor(Math.random() * images.length)]);
-        return;
-    },
+function wait(milliseconds: number) {
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
 };
+
+export default wait;
