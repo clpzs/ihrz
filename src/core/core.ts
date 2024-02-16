@@ -43,6 +43,8 @@ export default async (client: Client) => {
     logger.legacy(couleurmdr.gray("[*] Warning: iHorizon Discord bot is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 2.0."));
     logger.legacy(couleurmdr.gray("[*] Please respect the terms of this license. Learn more at: https://creativecommons.org/licenses/by-nc-sa/2.0"));
 
+    errorManager.uncaughtExceptionHandler();
+
     client.giveawaysManager = new GiveawayManager(client, {
         config: {
             botsCanWin: false,
@@ -68,6 +70,10 @@ export default async (client: Client) => {
 
     await import('../api/server.js');
 
+    playerManager(client);
+    bash(client);
+    emojis(client);
+    
     client.db = db;
     client.invites = new Collection();
     client.vanityInvites = new Collection<Snowflake, VanityInviteData>();
@@ -81,11 +87,6 @@ export default async (client: Client) => {
             await handlerFunction(client);
         }
     }
-
-    bash(client);
-    playerManager(client);
-    emojis(client);
-    errorManager.uncaughtExceptionHandler();
 
     client.login(config.discord.token).then(() => {
         commandsSync(client).then(() => {
