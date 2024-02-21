@@ -7,9 +7,10 @@
         "Price": 20,
         "Currency": "money",
         "Resell": 3,
-        "Magic": false
+        "Magic": false,
+        "Zone": "ALL"
     },
-    "Zone": "ALL",
+    
     "fr": {
         "name": "Épée en bois",
         "description": "Une épée en bois de merde qui se revend pour très peu, elle est la pire épée de tout l'univers."

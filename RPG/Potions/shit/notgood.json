@@ -1,0 +1,18 @@
+{
+    "image": "https://cdn.discordapp.com/attachments/1209654817350221874/1209673313325027419/iu.png?ex=65e7c710&is=65d55210&hm=5c7e73fef35802beec459e6d9384c2bf298d85a435890bb6a067061c54b4c6c5&",
+    "Stats": {
+        "HP": -10,
+        "Price": 3,
+        "Currency": "money",
+        "Resell": 0,
+        "Zone": "ALL"
+    },
+    "fr": {
+        "name": "Le truc degeulasse qui ce bois je pense?",
+        "description": "Je n'y toucherais pas avec un baton. Bois le?"
+    },
+    "en": {
+        "name": "That dirty thing that can be consumed..? I think..?",
+        "description": "EW DONT DRINK THAT"
+    }
+}
