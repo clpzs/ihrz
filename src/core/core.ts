@@ -23,6 +23,7 @@ import * as checkSys from './functions/checkSys.js';
 import playerManager from "./modules/playerManager.js";
 import db from './functions/DatabaseModel.js';
 import bash from './bash/bash.js';
+import RPG from "../RPG/client.js";
 
 import * as errorManager from './modules/errorManager.js';
 import logger from "./logger.js";
@@ -56,6 +57,8 @@ export default async (client: Client) => {
             endedGiveawaysLifetime: 345_600_000,
         },
     });
+
+    client.RPG = new RPG(client);
 
     process.on('SIGINT', async () => {
         client.destroy();

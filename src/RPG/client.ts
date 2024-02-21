@@ -6,7 +6,7 @@ import ProfileManager from "./ProfileManager.js";
 import ItemManager from "./ItemManager.js";
 import ShopManager from "./ShopManager.js";
 
-class ClientRPG {
+export default class {
     client: Client;
     db: QuickDB;
     Weapons: WeaponsManager;
@@ -23,8 +23,4 @@ class ClientRPG {
         this.Profile = new ProfileManager();
         this.Shop = new ShopManager(this.Weapons, this.Potions, this.Profile);
     }
-}
-
-export default (client: Client) => {
-    client.RPG = new ClientRPG(client);
 }
