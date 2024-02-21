@@ -5,7 +5,7 @@
         "Price": 3,
         "Currency": "money",
         "Resell": 0,
-        "Zone": "ALL"
+        "Zone": ["EARTH", "HELL"]
     },
     "fr": {
         "name": "Le truc degeulasse qui ce bois je pense?",

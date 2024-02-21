@@ -8,7 +8,7 @@
         "Currency": "money",
         "Resell": 3,
         "Magic": false,
-        "Zone": "ALL"
+        "Zone": ["EARTH", "HELL"]
     },
     
     "fr": {
