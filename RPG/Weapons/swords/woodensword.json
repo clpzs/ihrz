@@ -1,0 +1,20 @@
+{
+    "image": "https://cdn.discordapp.com/attachments/1209654817350221874/1209654827320352858/image.png?ex=65e7b5d9&is=65d540d9&hm=77dd5083eb69e13f4f3c85650dc142c8a4dae5e818be36f5a1e7ac05e176b118&",
+    "Stats": {
+        "Damage": 5,
+        "Speed": 1,
+        "Durability": 50,
+        "Price": 20,
+        "Currency": "money",
+        "Resell": 3,
+        "Magic": false
+    },
+    "fr": {
+        "name": "Épée en bois",
+        "description": "Une épée en bois de merde qui se revend pour très peu, elle est la pire épée de tout l'univers."
+    },
+    "en": {
+        "name": "Wooden sword",
+        "description": "A shitty wooden sword pretty much worthless, even my mother wouldn't buy it for more than 2 dollars. It's the worst sword in all of the universe."
+    }
+}
