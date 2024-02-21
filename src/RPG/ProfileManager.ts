@@ -1,4 +1,4 @@
-import { QuickDB } from "quickdb";
+import { QuickDB } from "quick.db";
 
 class Profile {
     Money: Number;
