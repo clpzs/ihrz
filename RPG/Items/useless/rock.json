@@ -1,0 +1,18 @@
+{
+    "image": "",
+    "Stats": {
+        "Usable": false,
+        "Price": 2,
+        "Currency": "money",
+        "Resell": 0,
+        "Zone": ["EARTH", "HELL"]
+    },
+    "fr": {
+        "name": "Une pierre",
+        "description": "Une pierre, waaaaawwwww, vraiment fou et utile oulala"
+    },
+    "en": {
+        "name": "A rock",
+        "description": "Waw, a rock, so useful! Oh my god..."
+    }
+}
