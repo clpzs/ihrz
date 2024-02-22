@@ -58,8 +58,6 @@ export default async (client: Client) => {
         },
     });
 
-    client.RPG = new RPG(client);
-
     process.on('SIGINT', async () => {
         client.destroy();
         await new OwnIHRZ().QuitProgram();
@@ -80,6 +78,7 @@ export default async (client: Client) => {
     client.db = db;
     client.invites = new Collection();
     client.vanityInvites = new Collection<Snowflake, VanityInviteData>();
+    client.RPG = new RPG(client);
 
     let handlerPath = `${process.cwd()}/dist/src/core/handlers`;
     let handlerFiles = readdirSync(handlerPath).filter(file => file.endsWith('.js'));
