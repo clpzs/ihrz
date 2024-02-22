@@ -47,6 +47,7 @@ class Profile {
     Money: Number;
     Souls: Number;
     EquipedWeapon: string;
+    EquipedArmor: string;
     Stats: ProfileStats;
     Inventory: Inventory;
     constructor(Data: any, db: QuickDB, id: string) {
@@ -56,6 +57,7 @@ class Profile {
         this.Souls = Data.Souls;
         this.Lang = Data.lang;
         this.EquipedWeapon = Data.equipedWeapon;
+        this.EquipedArmor = Data.equipedArmor;
         this.Stats = new ProfileStats(Data.Stats);
         this.Inventory = new Inventory(Data.Inventory);
     }
