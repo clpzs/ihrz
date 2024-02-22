@@ -86,7 +86,7 @@ class Profile {
     db: QuickDB;
     Lang: string;
     Money: Number;
-    Souls: Number;
+    Souls: Array<string>;
     EquipedWeapon: string;
     EquipedArmor: string;
     Stats: ProfileStats;
