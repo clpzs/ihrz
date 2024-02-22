@@ -6,7 +6,8 @@
         "Price": 10,
         "Currency": "money",
         "Resell": 3,
-        "Magic": false
+        "Magic": false,
+        "Zone": ["EARTH", "HELL"]
     },
     "fr": {
         "name": "Magnifique truc bizzard??",
