@@ -1,0 +1,19 @@
+{
+    "image": "https://cdn.discordapp.com/attachments/1209654817350221874/1210028295824080946/iu.png?ex=65e911aa&is=65d69caa&hm=5e8e0ac47db6ea7b15d1eecdfbc56490a1c2f2ea5c3ff79b7f5501c4546e4a12&",
+    "Stats": {
+        "Resistance": 3,
+        "Durability": 5,
+        "Price": 10,
+        "Currency": "money",
+        "Resell": 3,
+        "Magic": false
+    },
+    "fr": {
+        "name": "Magnifique truc bizzard??",
+        "description": "C'est degeulasse est non utile. Autant rien mêttre plutôt que mêttre ça.."
+    },
+    "en": {
+        "name": "Yeah...Ew..",
+        "description": "DONT PUT THAT ON YOU WHAT NO PLEASE DONT EW"
+    }
+}
