@@ -120,6 +120,8 @@ class Profile {
     }
 }
 
+let OnProfiles = {};
+
 export default class {
     db: QuickDB
     constructor(client: Client) {
@@ -132,9 +134,13 @@ export default class {
         return true;
     }
     async Get(id: string): Promise<Profile | undefined> {
-        const Data = await this.Started(id, true);
+        let Data = OnProfiles[id];
+        if (Data) return Data;
+        Data = await this.Started(id, true);
         if (!Data) return;
-        return new Profile(Data, this.db, id);
+        Data = new Profile(Data, this.db, id);
+        OnProfiles[id] = Data;
+        return Data;
     }
     async GetLang(id: string): Promise<string> {
         const lang = await this.db.get(`RPG/${id}/lang`);
