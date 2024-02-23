@@ -15,14 +15,15 @@ export default class {
     Profile: ProfileManager;
     Items: ItemManager;
     Shop: ShopManager;
-    Armor: ArmorsManager;
+    Armors: ArmorsManager;
     constructor(client: Client) {
         this.client = client;
         this.db = client.db;
         this.Weapons = new WeaponsManager();
         this.Potions = new PotionsManager();
+        this.Armors = new ArmorsManager();
         this.Items = new ItemManager();
-        this.Profile = new ProfileManager(client);
-        this.Shop = new ShopManager(this.Weapons, this.Potions, this.Profile);
+        this.Profile = new ProfileManager(client.db);
+        this.Shop = new ShopManager(client);
     }
 }

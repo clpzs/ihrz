@@ -36,7 +36,7 @@ type ItemsPropretyTyping = { [key: string]: Number };
 
 class Inventory {
     Weapons: ItemsPropretyTyping;
-    Potions: Array<string>;
+    Potions: ItemsPropretyTyping;
     Items: ItemsPropretyTyping;
     Armors: ItemsPropretyTyping;
     Data: any;
@@ -50,7 +50,7 @@ class Inventory {
             this.Weapons[Weapon.name] = Weapon.Durability;
         }
         for (const Potion of Items.Potions) {
-            this.Potions.push(Potion);
+            this.Potions[Potion.name] = Potion.amount;
         }
         for (const item of Items.Items) {
             this.Items[item.name] = item.amount;
@@ -61,20 +61,23 @@ class Inventory {
         this.Data = Data;
     }
     async UpdateInventory() {
-        [{name: "", Durability: 1}]
         let DBweapons = [];
         for (const Weapon of this.Weapons) {
-            DBweapons.push({name: Weapon, Durability: this.Weapons[Weapon]});
+            DBweapons.push({"name": Weapon, "Durability": this.Weapons[Weapon]});
         }
         let DBarmors = [];
         for (const Armor of this.Armors) {
-            DBarmors.push({name: Armor, Durability: this.Armors[Armor]});
+            DBarmors.push({"name": Armor, "Durability": this.Armors[Armor]});
         }
         let DBitems = [];
         for (const Item of this.Items) {
             DBitems.push({"name": Item, "amount": this.Items[Item]});
         }
-        this.Data.Inventory = {"Weapons": DBweapons, "armors": DBarmors, "Potions": this.Potions, "Items": DBitems}
+        let DBpotions = [];
+        for (const Potion of this.Potions) {
+            DBpotions.push({"name": Potion, "amount": this.Potions[Potion]})
+        }
+        this.Data.Inventory = {"Weapons": DBweapons, "armors": DBarmors, "Potions": DBpotions, "Items": DBitems}
         await this.db.set(`RPG/${this.id}`, this.Data);
     }
 }
@@ -86,6 +89,7 @@ class Profile {
     Lang: string;
     Money: Number;
     Souls: Array<string>;
+    SoulOwner: string;
     EquipedWeapon: string;
     EquipedArmor: string;
     Stats: ProfileStats;
@@ -99,6 +103,7 @@ class Profile {
         this.Money = Data.Money;
         this.Souls = Data.Souls;
         this.Lang = Data.lang;
+        this.SoulOwner = Data.SoulOwner || "";
         this.EquipedWeapon = Data.equipedWeapon;
         this.EquipedArmor = Data.equipedArmor;
         this.Stats = new ProfileStats(Data, db, id);
@@ -116,6 +121,10 @@ class Profile {
         this.Changes = ["EquipedWeapon"];
         await this.UpdateUser();
         return true;
+    }
+    async PowerScaleCalculate() {
+        this.Stats.PowerScale = this.Souls * 1000;
+        this.Stats.UpdateStats();
     }
 }
 
