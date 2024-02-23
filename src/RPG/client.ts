@@ -22,7 +22,7 @@ export default class {
         this.Weapons = new WeaponsManager();
         this.Potions = new PotionsManager();
         this.Items = new ItemManager();
-        this.Profile = new ProfileManager();
+        this.Profile = new ProfileManager(client);
         this.Shop = new ShopManager(this.Weapons, this.Potions, this.Profile);
     }
 }

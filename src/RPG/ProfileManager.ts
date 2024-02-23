@@ -1,5 +1,4 @@
 import { QuickDB } from "quick.db";
-import { Client } from "discord.js";
 
 class ProfileStats {
     MAXHP: Number;
@@ -124,8 +123,8 @@ let OnProfiles = {};
 
 export default class {
     db: QuickDB
-    constructor(client: Client) {
-        this.db = client.db;
+    constructor(db: QuickDB) {
+        this.db = db;
     }
     async Started(id: string, ReturnLoadedData: boolean = false): Promise<any> {
         const Data = await this.db.get(`RPG/${id}`);
