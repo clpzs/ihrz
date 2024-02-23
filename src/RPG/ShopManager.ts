@@ -63,4 +63,7 @@ export default class {
         user.UpdateUser();
         return 200;
     }
+    async sell() {
+        
+    }
 }
