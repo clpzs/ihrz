@@ -65,9 +65,6 @@ export default async (client: Client) => {
 
     checkSys.Html();
 
-    var table_1 = db.table("BOT");
-    await table_1.set(`CONTENT`, {});
-
     await import('../api/server.js');
 
     playerManager(client);
@@ -75,6 +72,7 @@ export default async (client: Client) => {
     emojis(client);
     
     client.db = db;
+    client.content = []
     client.invites = new Collection();
     client.vanityInvites = new Collection<Snowflake, VanityInviteData>();
 
