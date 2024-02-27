@@ -123,7 +123,7 @@ class Profile {
         return true;
     }
     async PowerScaleCalculate() {
-        this.Stats.PowerScale = this.Souls * 1000;
+        this.Stats.PowerScale = this.Souls.length * 1000;
         this.Stats.UpdateStats();
     }
 }
