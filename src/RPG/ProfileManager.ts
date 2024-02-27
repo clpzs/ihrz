@@ -55,7 +55,7 @@ class Inventory {
         for (const item of Items.Items) {
             this.Items[item.name] = item.amount;
         }
-        for (const armor of Items.amors) {
+        for (const armor of Items.Armors) {
             this.Armors[armor.name] = armor.Durability;
         }
         this.Data = Data;
@@ -154,5 +154,31 @@ export default class {
         const lang = await this.db.get(`RPG/${id}/lang`);
         if (!lang) return 'en';
         return lang;
+    }
+    async Start(id: string, Settings: {lang: string}): Promise<Profile | undefined> {
+        this.db.set(`RPG/${id}/lang`, Settings.lang);
+        const Data = {
+            lang: Settings.lang,
+            Money: 100,
+            Souls: [],
+            equipedWeapon: "",
+            EquipedArmor: '',
+            SoulOwner: "",
+            Stats: {
+                MAXHP: 100,
+                HP: 100,
+                Stamina: 10,
+                Endurance: 1,
+                PowerScale: 0
+            },
+            Inventory: {
+                Weapons: {},
+                Potions: {},
+                Items: {},
+                Armors: {}
+            }
+        };
+        this.db.set(`RPG/${id}`, Data);
+        return new Profile(Data, this.db, id);
     }
 }
