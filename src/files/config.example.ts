@@ -28,6 +28,8 @@ const config: ConfigData = {
         token: "The bot token",
         // The Discord Bot Token
 
+        botPresence: true
+        // If the bot have Bot Activity Presence
     },
 
     lavalink: {
@@ -161,10 +163,11 @@ const config: ConfigData = {
         // If you use MongoDB, put the address of the MongoDB connection.
 
         mySQL: {
-            hostname: '',
+            host: '',
             password: '',
             database: '',
-            user: ''
+            user: '',
+            port: 3306
         },
         // The MySQL connection configuration if you using MySQL
     },

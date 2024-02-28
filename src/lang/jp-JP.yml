@@ -235,6 +235,8 @@ help_schedule_fields: "スケジュール"
 help_schedule_dsc: "プリプログラムされたメッセージを使用してリマインダーを作成し、ボットがプライベートメッセージで送信する"
 help_pfps_fields: "PFPS"
 help_pfps_dsc: "チャンネルにランダムなユーザーアバターを送信します！"
+help_voicedashboard_fields: "音声ダッシュボード"
+help_voicedashboard_dsc: "インターフェイスでカスタム一時ボイスチャンネルを作成します！"
 
 # /say
 say_footer_msg: "\n\n`${interaction.user}` から `/say` から送信"
@@ -342,7 +344,7 @@ weekly_embed_description: "**週の報酬**"
 weekly_embed_fields: "収集された"
 
 # /work
-work_cooldown_error: "**50分間は他のユーザーを強奪できません！** ${interaction.user.username}"
+work_cooldown_error: "<@${interaction.user.id}>、**${time} 分後に別のユーザーを再び襲う前に待ってください！**"
 work_embed_author: "${interaction.user.username}、報酬がもらえました！"
 work_embed_description: "${interaction.user.username}、あなたは働いて${amount}$を稼ぎました！"
 
@@ -473,6 +475,10 @@ nickrole_too_much_member: "メンバーが多すぎるため、実行できま�
 emoji_send_new_emoji: "__新しい絵文字が作成されました__ 名前：**${emoji.name}** ! (${emoji})"
 emoji_send_err_emoji: "__新しい絵文字の作成時エラー__ 名前：**${emoji.name}** !"
 emoji_embed_desc_work: "__`${interaction.guild.name}` に**${cnt}**個の絵文字を作成しました__\n(${nemj})"
+
+# /derank
+derank_msg_desc_embed: "## 私は<@${member.id}>から**${good}**つの役職を削除しました。\n## ただし、**${bad}**つの役職を削除できませんでした。"
+derank_msg_failed: "役職の削除中にエラーが発生しました。"
 
 
 # Guild Config commands
@@ -1190,6 +1196,32 @@ mybot_instance_deny_utils_msg_no: "いいえ"
 mybot_instance_deny_embed_title: "独自の iHorizon をホストする: ${bot_1.bot.username}#${bot_1.bot.discriminator}"
 mybot_instance_deny_embed_desc: "ボットは拒否されました\n\n${utils_msg}"
 
+
+# TempVoiceモジュール
+# /text, /voice, /status, /staff
+
+# /voice インターフェースを設定する
+tempvoice_if_text_not_admin: "<@${interaction.user.id}>, このコマンドを使用する権限がありません！"
+tempvoice_if_text_desc_embed: "## TempVoice インターフェース\nこの**インターフェース**は一時的な音声チャンネルを管理するために使用できます。\n"
+tempvoice_if_text_fields_value_limit: "${client.iHorizon_Emojis.vc.Limit} **制限を変更する**"
+tempvoice_if_text_fields_value_name: "${client.iHorizon_Emojis.vc.Name} **名前を変更する**"
+tempvoice_if_text_fields_value_region: "${client.iHorizon_Emojis.vc.Region} **地域を変更する**"
+tempvoice_if_text_fields_value_trust: "${client.iHorizon_Emojis.vc.Trust} **信頼する**"
+tempvoice_if_text_fields_value_untrust: "${client.iHorizon_Emojis.vc.Untrust} **信頼しない**"
+tempvoice_if_text_fields_value_block: "${client.iHorizon_Emojis.vc.Block} **ブロックする**"
+tempvoice_if_text_fields_value_unblock: "${client.iHorizon_Emojis.vc.Unblock} **ブロック解除する**"
+tempvoice_if_text_fields_value_claim: "${client.iHorizon_Emojis.vc.Claim} **クレームする**"
+tempvoice_if_text_fields_value_privacy: "${client.iHorizon_Emojis.vc.Privacy} **プライバシー**"
+tempvoice_if_text_fields_value_transfer: "${client.iHorizon_Emojis.vc.Transfer} **転送する**"
+tempvoice_if_text_fields_value_delete: "${client.iHorizon_Emojis.vc.Delete} **削除する**"
+
+# /voice インターフェースを設定する
+tempvoice_vc_not_admin: "<@${interaction.user.id}>, このコマンドを使用する権限がありません！"
+
+# /voice インターフェースを設定する
+tempvoice_staff_not_admin: "<@${interaction.user.id}>, このコマンドを使用する権限がありません！"
+tempvoice_staff_desc_embed: "## TempVoice スタッフロール\n<@&${targetedRole?.id}>は今後、チャンネルをモデレートできます！\n"
+
 # -----------------------------/ \-----------------------------
 # Music Player Events
 
@@ -1295,5 +1327,57 @@ event_boostlog_sub: "<@${newMember.user.id}> **がサーバーからブースト
 
 # 経済モジュール
 economy_disable_msg: "<@${interaction.user.id}>、このギルドの `経済モジュール` は**無効**になっています。もう経済モジュールは使えません！"
+
+# TempVoiceモジュール
+# すべてのコンポーネント、グローバル変数...
+
+# グローバル変数
+
+temporary_voice_title_embec: "## 一時ボイスチャンネルの変更点"
+temporary_voice_unblocked_member: "ブロック解除されたメンバー"
+temporary_voice_blocked_mmeber: "ブロックされたメンバー"
+temporary_voice_no_one: "誰もいない"
+temporary_voice_new_member: "新しい所有者"
+temporary_voice_old_member: "古い所有者"
+temporary_voice_modal_title: "iHorizonのボイスダッシュボード"
+temporary_voice_new_userlimit: "新しいユーザー制限"
+temporary_voice_new_name: "新しい名前"
+temporary_voice_new_region: "新しい地域"
+temporary_voice_untrusted_member: "信頼されていないメンバー"
+temporary_voice_trusted_member: "信頼されたメンバー"
+
+# ボタン
+temporary_voice_block_button_menu_placeholder: "選択したユーザーは参加できません"
+
+temporary_voice_delete_button_desc_embed: "## チャンネル削除\nチャンネルが正常に削除されました！"
+
+temporary_voice_limit_button_menu_label: "チャンネルのユーザー制限は何ですか？"
+temporary_voice_limit_button_not_integer: "${interaction.client.iHorizon_Emojis.icon.No_Logo} | 入力が数字ではありません"
+
+temporary_voice_name_button_menu_label: "チャンネルの名前は何ですか？"
+
+temporary_voice_privacy_menu_placeholder: "プライバシーオプションを選択してください"
+temporary_voice_privacy_menu_lock_label: "チャンネルをロックする"
+temporary_voice_privacy_menu_lock_desc: "信頼されたユーザーのみがボイスチャンネルに参加できます"
+temporary_voice_privacy_menu_unlock_label: "チャンネルのロック解除"
+temporary_voice_privacy_menu_unlock_desc: "誰もがボイスチャンネルに参加できます"
+temporary_voice_privacy_menu_invisible_label: "不可視"
+temporary_voice_privacy_menu_invisible_desc: "信頼されたユーザーのみがボイスチャンネルを表示できます"
+temporary_voice_privacy_menu_visible_label: "可視"
+temporary_voice_privacy_menu_visible_desc: "誰もがボイスチャンネルを表示できます"
+temporary_voice_privacy_menu_closechat_label: "チャットを閉じる"
+temporary_voice_privacy_menu_closechat_desc: "信頼されたユーザーのみがチャットでテキストを送信できます"
+temporary_voice_privacy_menu_openchat_label: "チャットを開く"
+temporary_voice_privacy_menu_openchat_desc: "誰もがチャットでテキストを送信できます"
+
+temporary_voice_region_menu_placeholder: "地域を選択してください"
+
+temporary_voice_transfer_menu_placeholder: "ボイスチャンネルの移動先を選択したユーザー"
+
+temporary_voice_transfer_trust_placeholder: "選択したユーザーは参加するために信頼されます"
+
+temporary_voice_transfer_unblocked_placeholder: "選択したユーザーは参加できるようになります"
+
+temporary_voice_transfer_untrust_placeholder: "選択したユーザーは参加するために信頼されません"
 
 # -----------------------------\ /-----------------------------
