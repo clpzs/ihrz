@@ -9,6 +9,7 @@ interface LavalinkNodeOptions {
 export interface ConfigData {
     discord: {
         token: string;
+        botPresence: boolean;
     };
 
     lavalink: {
@@ -71,10 +72,12 @@ export interface ConfigData {
         mongoDb?: string;
 
         mySQL?: {
-            hostname: string;
+            host?: string;
+            hostname?: string;
             user: string;
             password: string;
             database: string;
+            port?: number;
         };
     };
 

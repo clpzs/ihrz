@@ -235,6 +235,8 @@ help_schedule_fields: "Schedule"
 help_schedule_dsc: "Create reminders with pre-programmed messages that the bot will send to you in a private message"
 help_pfps_fields: "PFPS"
 help_pfps_dsc: "Sending random user avatar in channel!"
+help_voicedashboard_fields: "VoiceDashboard"
+help_voicedashboard_dsc: "Create an custom temporary voice channel with interface!"
 
 # /say
 say_footer_msg: "\n\nSent from `/say` by ${interaction.user}"
@@ -342,7 +344,7 @@ weekly_embed_description: "**Weekly Reward**"
 weekly_embed_fields: "Collected"
 
 # /work
-work_cooldown_error: "**Wait 50minutes before rob user again !** ${interaction.user.username}"
+work_cooldown_error: "<@${interaction.user.id}>, **Wait ${time} minutes before robbing another user again!**"
 work_embed_author: "${interaction.user.username}, it payed off!"
 work_embed_description: "${interaction.user.username}, you've worked and earned ${amount}$ !"
 
@@ -473,6 +475,10 @@ nickrole_too_much_member: "Too many members, cannot proceed due to possible rate
 emoji_send_new_emoji: "__Created new emoji__ with name **${emoji.name}**! (${emoji})"
 emoji_send_err_emoji: "__Error when create new emoji__ with name **${emoji.name}**!"
 emoji_embed_desc_work: "__Created **${cnt}** emoji(s) in `${interaction.guild.name}`__\n(${nemj})"
+
+# /derank
+derank_msg_desc_embed: "## I have successfully removed **${good}** role(s) from <@${member.id}>.\n## However, I failed to remove **${bad}** role(s)."
+derank_msg_failed: "An error occurred while removing roles."
 
 
 # Guild Config commands
@@ -1190,6 +1196,32 @@ mybot_instance_deny_utils_msg_no: "No"
 mybot_instance_deny_embed_title: "Host your own iHorizon: ${bot_1.bot.username}#${bot_1.bot.discriminator}"
 mybot_instance_deny_embed_desc: "The bot has been refused\n\n${utils_msg}"
 
+
+# TempVoice Module
+# /text, /voice, /status, /staff
+
+# /voice interface set-text-channel
+tempvoice_if_text_not_admin: "<@${interaction.user.id}>, you are not authorized to use this command !"
+tempvoice_if_text_desc_embed: "## TempVoice Interface\nThis **interface** can be used to manage temporary voice channels.\n"
+tempvoice_if_text_fields_value_limit: "${client.iHorizon_Emojis.vc.Limit} **Change limit**"
+tempvoice_if_text_fields_value_name: "${client.iHorizon_Emojis.vc.Name} **Change Name**"
+tempvoice_if_text_fields_value_region: "${client.iHorizon_Emojis.vc.Region} **Change Region**"
+tempvoice_if_text_fields_value_trust: "${client.iHorizon_Emojis.vc.Trust} **Trust**"
+tempvoice_if_text_fields_value_untrust: "${client.iHorizon_Emojis.vc.Untrust} **Untrust**"
+tempvoice_if_text_fields_value_block: "${client.iHorizon_Emojis.vc.Block} **Block**"
+tempvoice_if_text_fields_value_unblock: "${client.iHorizon_Emojis.vc.Unblock} **Unblock**"
+tempvoice_if_text_fields_value_claim: "${client.iHorizon_Emojis.vc.Claim} **Claim**"
+tempvoice_if_text_fields_value_privacy: "${client.iHorizon_Emojis.vc.Privacy} **Privacy**"
+tempvoice_if_text_fields_value_transfer: "${client.iHorizon_Emojis.vc.Transfer} **Transfer**"
+tempvoice_if_text_fields_value_delete: "${client.iHorizon_Emojis.vc.Delete} **Delete**"
+
+# /voice inteface set-voice-channel
+tempvoice_vc_not_admin: "<@${interaction.user.id}>, your are not authorized to use this commands !"
+
+# /voice interface set-staff-role
+tempvoice_staff_not_admin: "<@${interaction.user.id}>, you are not authorized to use this command !"
+tempvoice_staff_desc_embed: "## TempVoice Staff Role\nThe <@&${targetedRole?.id}> can now enter in the channel moderate!\n"
+
 # -----------------------------/ \-----------------------------
 # Music Player Events
 
@@ -1295,5 +1327,57 @@ event_boostlog_sub: "<@${newMember.user.id}> **just removed their boost** from t
 
 # Economy Module
 economy_disable_msg: "<@${interaction.user.id}>, the `Economy Module` in this guild are **disable**. You can't use economy module anymore!"
+
+# TempVoice Module
+# All components, globalVar...
+
+# GlobalVariable
+
+temporary_voice_title_embec: "## Modifications about your temporary voice channel"
+temporary_voice_unblocked_member: "Unblocked members"
+temporary_voice_blocked_mmeber: "Blocked members"
+temporary_voice_no_one: "No one"
+temporary_voice_new_member: "New owner"
+temporary_voice_old_member: "Old owner"
+temporary_voice_modal_title: "iHorizon's VoiceDashboard"
+temporary_voice_new_userlimit: "New UserLimit"
+temporary_voice_new_name: "New name"
+temporary_voice_new_region: "New region"
+temporary_voice_untrusted_member: "Untrusted members"
+temporary_voice_trusted_member: "Trusted members"
+
+# Buttons
+temporary_voice_block_button_menu_placeholder: "Selected users will be untrusted to join"
+
+temporary_voice_delete_button_desc_embed: "## Channel deletion\nThe channel are succeffuly deleted !"
+
+temporary_voice_limit_button_menu_label: "What's the channel user limit ?"
+temporary_voice_limit_button_not_integer: "${interaction.client.iHorizon_Emojis.icon.No_Logo} | The input are not an number"
+
+temporary_voice_name_button_menu_label: "What's the channel name ?"
+
+temporary_voice_privacy_menu_placeholder: "Select a Privacy Option"
+temporary_voice_privacy_menu_lock_label: "Lock channel"
+temporary_voice_privacy_menu_lock_desc: "Only trusted users will be able to join your voice channel"
+temporary_voice_privacy_menu_unlock_label: "Unlock channel"
+temporary_voice_privacy_menu_unlock_desc: "Everyone will be able to join your voice channel"
+temporary_voice_privacy_menu_invisible_label: "Invisible"
+temporary_voice_privacy_menu_invisible_desc: "Only trusted users will be able to view your voice channel"
+temporary_voice_privacy_menu_visible_label: "Visible"
+temporary_voice_privacy_menu_visible_desc: "Everyone will be able to view your voice channel"
+temporary_voice_privacy_menu_closechat_label: "Close chat"
+temporary_voice_privacy_menu_closechat_desc: "Only trusted users will be able to text in your chat"
+temporary_voice_privacy_menu_openchat_label: "Open chat"
+temporary_voice_privacy_menu_openchat_desc: "Everyone will be able to text in your chat"
+
+temporary_voice_region_menu_placeholder: "Select a Region"
+
+temporary_voice_transfer_menu_placeholder: "Selected user to transfer the voice channel"
+
+temporary_voice_transfer_trust_placeholder: "Selected users will be trusted to join"
+
+temporary_voice_transfer_unblocked_placeholder: "Selected users will be unblocked to join"
+
+temporary_voice_transfer_untrust_placeholder: "Selected users will be untrusted for joining"
 
 # -----------------------------\ /-----------------------------
