@@ -1,0 +1,160 @@
+{
+    "Stats": {
+        "pourcent": 90,
+        "Regions": ["EARTH", "HELL", "HEAVEN"]
+    },
+    "fr": {
+        "name": "David",
+        "Options": [
+            {
+                "Possibilities": [
+                    "Hey salut",
+                    "Coucou!",
+                    "Salut!",
+                    "Yo!",
+                    "Bonjour!",
+                    "Bonsoir!",
+                    "Bon matin!"
+                ],
+                "Responses": [
+                    "Bonjour? Je te connais?",
+                    "Salut? On s'connait?",
+                    "Coucou? Je t'ai déjà parler?"
+                ],
+                "Options": [
+                    {
+                        "Possibilities": [
+                            "Oui! Je te connais depuis un bail!", "Oui! Enfin je pense!",
+                            "Bah oui David tes mon pote, mon frère, mon ami quoi!"
+                        ],
+                        "Responses": [
+                            "Ah...Super! *David part de cet endroit*",
+                            "Super..! *David part de cet endroit*",
+                            "Cool..! *David part de cet endroit*"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Possibilities": [
+                    "Va te faire foutre!",
+                    "Tes moche!",
+                    "Tu veux te battre???",
+                    "Ta mère c'est une conne!",
+                    "Ahahah c'est David le gros con!"
+                ],
+                "Responses": [
+                    "Pardon!? *David part de cet endroit*",
+                    "Excusez-moi? On se connait...? *David part de cet endroit*",
+                    "Vous êtes bizzard! *David part de cet endroit*"
+                ]
+            },
+            {
+                "Possibilities": [
+                    "Donne moi ton argent.",
+                    "Donne ton argent ou tu crève.",
+                    "Donne moi ton argent! Maintenant!"
+                ],
+                "Responses": [
+                    "D'accord mais me faites pas de mal!",
+                    "Ne faites pas cela! Je vous empris!",
+                    "Okay!"
+                ],
+                "Money": [10, 50],
+                "Sins": 5
+            },
+            {
+                "Possibilities": [
+                    "Tu as besoin d'argent? Tien! Cadeau!",
+                    "Tien! Cadeau!",
+                    "Tu es beau aujourdhui! Tien de l'argent!"
+                ],
+                "Responses": [
+                    "Merci énormément!",
+                    "C'est très gentil!",
+                    "Merci!!!"
+                ],
+                "Money": [-10, -50],
+                "Sins": -1
+            }
+        ]
+    },
+    "en": {
+        "name": "David",
+        "Options": [
+            {
+                "Possibilities": [
+                    "Hey there",
+                    "Hi!",
+                    "Hello!",
+                    "Yo!",
+                    "Good morning!",
+                    "Good evening!",
+                    "Good afternoon!"
+                ],
+                "Responses": [
+                    "Hello? Do I know you?",
+                    "Hi? Do we know each other?",
+                    "Hey there? Have we talked before?"
+                ],
+                "Options": [
+                    {
+                        "Possibilities": [
+                            "Yes! I know you for ages!",
+                            "Yes! I think so!",
+                            "Of course David, you're my buddy, my brother, my friend!"
+                        ],
+                        "Responses": [
+                            "Ah... Great! *David leaves this place*",
+                            "Great..! *David leaves this place*",
+                            "Cool..! *David leaves this place*"
+                        ]
+                    }
+                ]
+            },
+            {
+                "Possibilities": [
+                    "Go to hell!",
+                    "You're ugly!",
+                    "Do you wanna fight???",
+                    "Your mother is stupid!",
+                    "Hahaha it's David the idiot!"
+                ],
+                "Responses": [
+                    "Excuse me!? *David leaves this place*",
+                    "Excuse me? Do we know each other...? *David leaves this place*",
+                    "You're weird! *David leaves this place*"
+                ]
+            },
+            {
+                "Possibilities": [
+                    "Give me your money.",
+                    "Give me your money or you'll die.",
+                    "Give me your money! Now!"
+                ],
+                "Responses": [
+                    "Okay but don't hurt me!",
+                    "Please don't do this! I beg you!",
+                    "Alright!"
+                ],
+                "Money": [10, 50],
+                "Sins": 5
+            },
+            {
+                "Possibilities": [
+                    "Do you need money? Here! Gift!",
+                    "Here! Gift!",
+                    "You look great today! Here's some money!"
+                ],
+                "Responses": [
+                    "Thank you so much!",
+                    "That's very kind!",
+                    "Thanks!!!"
+                ],
+                "Money": [-10, -50],
+                "Sins": -1
+            }
+        ]
+    }
+    
+}

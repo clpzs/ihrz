@@ -96,6 +96,7 @@ class Profile {
     Inventory: Inventory;
     rawData: any;
     Changes: Array<string>;
+    Sins: Number;
     constructor(Data: any, db: QuickDB, id: string) {
         this.rawData = Data;
         this.id = id;
@@ -103,6 +104,7 @@ class Profile {
         this.Money = Data.Money;
         this.Souls = Data.Souls;
         this.Lang = Data.lang;
+        this.Sins = Data.sins;
         this.SoulOwner = Data.SoulOwner || "";
         this.EquipedWeapon = Data.equipedWeapon;
         this.EquipedArmor = Data.equipedArmor;
@@ -161,6 +163,7 @@ export default class {
             lang: Settings.lang,
             Money: 100,
             Souls: [],
+            Sins: 0,
             equipedWeapon: "",
             EquipedArmor: '',
             SoulOwner: "",
