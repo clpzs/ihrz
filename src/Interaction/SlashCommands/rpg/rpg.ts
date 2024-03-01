@@ -28,6 +28,8 @@ import {
 
 import { Command } from '../../../../types/command';
 
+import { LanguageDat } from '../../../../RPG/LANG/Manager.js';
+
 export const command: Command = {
     name: "rpg",
 
@@ -75,11 +77,11 @@ export const command: Command = {
         }
     ],
     thinking: false,
-    category: 'RPG',
+    category: 'rpg',
     type: ApplicationCommandType.ChatInput,
     run: async (client: Client, interaction: ChatInputCommandInteraction) => {
         let command = interaction.options.getSubcommand();
         const commandModule = await import(`./!${command}.js`);
-        await commandModule.default.run(client, interaction);
+        await commandModule.default.run(client, interaction, LanguageDat(interaction.user.id, client));
     },
 };

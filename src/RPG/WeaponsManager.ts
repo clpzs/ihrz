@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from "node:fs";
 
 function GetArmes(Dir: string) {
     let Data = {};
