@@ -97,10 +97,12 @@ class Profile {
     rawData: any;
     Changes: Array<string>;
     Sins: Number;
+    Region: string;
     constructor(Data: any, db: QuickDB, id: string) {
         this.rawData = Data;
         this.id = id;
         this.db = db;
+        this.Region = Data.Region;
         this.Money = Data.Money;
         this.Souls = Data.Souls;
         this.Lang = Data.lang;
@@ -164,6 +166,7 @@ export default class {
             Money: 100,
             Souls: [],
             Sins: 0,
+            Region: "EARTH",
             equipedWeapon: "",
             EquipedArmor: '',
             SoulOwner: "",

@@ -17,11 +17,14 @@ export default function(UserId: string, client: Client) {
     let lang: string = LoadedUsers[UserId];
     if (!lang) {
         lang = client.RPG.ProfileManager.GetLang(UserId);
+        if (!lang) { 
+            lang = 'en';
+        }
         LoadedUsers[UserId] = lang;
     }
     let data = LoadedLangData[lang];
     if (!data) {
-        data = yaml.load(fs.readFileSync(`${process.cwd()}/src/lang/${lang}.yml`, 'utf8')) as LanguageData;
+        data = yaml.load(fs.readFileSync(`${process.cwd()}/RPG/LANG/${lang}.yml`, 'utf8')) as LanguageData;
         LoadedLangData[lang] = data;
     }
     return data;

@@ -28,7 +28,7 @@ import {
 
 import { Command } from '../../../../types/command';
 
-import { LanguageDat } from '../../../../RPG/LANG/Manager.js';
+import LanguageDat from '../../../../RPG/LANG/Manager.js';
 
 export const command: Command = {
     name: "rpg",

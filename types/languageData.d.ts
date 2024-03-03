@@ -976,4 +976,8 @@ export interface LanguageData {
     temporary_voice_trusted_member: string;
     temporary_voice_transfer_unblocked_placeholder: string;
     temporary_voice_transfer_untrust_placeholder: string;
+
+    // RPG
+    StartTitle: string;
+    StartDescription: string;
 }
