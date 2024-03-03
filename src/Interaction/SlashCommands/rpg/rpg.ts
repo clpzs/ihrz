@@ -83,5 +83,5 @@ export const command: Command = {
         let command = interaction.options.getSubcommand();
         const commandModule = await import(`./!${command}.js`);
         await commandModule.default.run(client, interaction, LanguageDat(interaction.user.id, client));
-    },
+    }
 };
