@@ -29,6 +29,25 @@ sethereticket_disabled_command: "Sie können diesen Befehl nicht verwenden, da e
 sethereticket_not_admin: ":x: | Sie müssen ein Administrator dieses Servers sein, um diesen Befehl auszuführen!"
 sethereticket_description_embed: "Um ein neues Ticket zu erstellen, reagieren Sie bitte mit 📩"
 sethereticket_command_work: "Das Ticket-Panel wurde erfolgreich festgelegt!"
+sethereticket_command_type_menu_placeholder: "Welche Art von Panel möchten Sie?"
+sethereticket_command_type_menu_choice_1_label: "Panel mit Schaltfläche erstellen"
+sethereticket_command_type_menu_choice_2_label: "Panel mit Auswahl erstellen"
+sethereticket_command_type_menu_question: "<@${interaction.user.id}>, welche Art von Panel möchten Sie?"
+sethereticket_panelforcreate_embed_desc: "## Erstellen eines Ticket-Panels mit Auswahl\n"
+sethereticket_panelforcreate_button_add_label: "Neuen Fall hinzufügen"
+sethereticket_panelforcreate_button_sub_label: "Letzten Fall entfernen"
+sethereticket_panelforcreate_button_save_label: "Einbettung senden"
+sethereticket_modal_1_title : "Neuen Fall in das Panel einfügen"
+sethereticket_modal_1_fields_1_placeholder: "Name des Falls für die Auswahl"
+sethereticket_modal_1_fields_1_label: "Name"
+sethereticket_modal_1_fields_2_placeholder: "Emojis des Falls für die Auswahl"
+sethereticket_modal_1_fields_2_label: "Emoji"
+sethereticket_modal_2_title: "Konfigurationen zum Panel"
+sethereticket_modal_2_fields_1_placeholder: "Der Titel der Einbettung"
+sethereticket_modal_2_fields_1_title: "Einbettungstitel"
+sethereticket_modal_2_fields_2_placeholder: "Die Beschreibung der Einbettung"
+sethereticket_modal_2_fields_2_title: "Einbettungsbeschreibung"
+sethereticket_panel_select_embed_desc: "# Panelname\n```${result.panelName}```\n{msg}\n\n## Kategorie\n```{category}```\n"
 
 # /open
 open_disabled_command: "Du kannst diesen Befehl nicht verwenden, da ein Administrator die Ticket-Befehle deaktiviert hat!"
@@ -479,6 +498,12 @@ emoji_embed_desc_work: "__Erstellt **${cnt}** Emoji(s) in `${interaction.guild.n
 # /derank
 derank_msg_desc_embed: "## Ich habe erfolgreich **${good}** Rolle(n) von <@${member.id}> entfernt.\n## Leider konnte ich **${bad}** Rolle(n) nicht entfernen."
 derank_msg_failed: "Ein Fehler ist beim Entfernen der Rollen aufgetreten."
+
+# /Aktion Entbannen alle
+action_unban_all_embed_desc: "## Alle Gildenmitglieder entbannen\n${client.iHorizon_Emojis.icon.Yes_Logo} | Ich habe erfolgreich das Verbot von `${unbanned_members.length}` Mitglied(ern) in der Gilde aufgehoben!\n${client.iHorizon_Emojis.icon.No_Logo} | Ich kann `${cannot_unban}` Mitglied(er) nicht entbannen!"
+
+# /Aktion Entbannen rückgängig machen
+action_unban_undo_embed_desc: "## Das Entbannen aller rückgängig machen\n${client.iHorizon_Emojis.icon.Yes_Logo} | Ich habe erfolgreich `${banned_members.length}` Mitglied(er) in der Gilde gebannt!\n${client.iHorizon_Emojis.icon.No_Logo} | Ich kann `${cannot_ban}` Mitglied(er) nicht entbannen!"
 
 
 # Guild Config commands
