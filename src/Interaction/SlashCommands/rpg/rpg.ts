@@ -74,6 +74,17 @@ export const command: Command = {
                     ],
                 },
             ],
+        },
+        {
+            name: "explore",
+            name_localizations: {
+                "fr": "commencer"
+            },
+            description: "",
+            description_localizations: {
+                "fr": ""
+            },
+            type: 1
         }
     ],
     thinking: false,

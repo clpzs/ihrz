@@ -32,12 +32,6 @@ import LanguageDat from '../../../../RPG/LANG/Manager.js';
 
 export default {
     run: async (client: Client, interaction: ChatInputCommandInteraction, data: LanguageData) => {
-        let embed = new EmbedBuilder()
-            .setTitle(data.StartTitle)
-            .setDescription(data.StartDescription)
-            .setColor("#90ee90");
-        await interaction.reply({
-            embeds: [embed]
-        });
+        // TODO: ALGORITHM TO FIND EVENTS
     },
 };
